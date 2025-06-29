@@ -1,10 +1,9 @@
-const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbx9BMPUwaJBNixu1tQQVGkkDbuhNPnVaCg0fOLGiFL2ht1plpk8TBL9e9eMy07tZg0XLQ/exec';
+const WEBAPP_URL = '<<YOUR_WEBAPP_URL>>'; // เปลี่ยนเป็น Web App URL
 
 const form = document.getElementById('repairForm');
 const imageInput = document.getElementById('imageInput');
 const preview = document.getElementById('preview');
 
-// ✅ แสดงตัวอย่างรูป
 imageInput.addEventListener('change', () => {
   preview.innerHTML = '';
   [...imageInput.files].slice(0, 5).forEach(file => {
@@ -19,7 +18,6 @@ imageInput.addEventListener('change', () => {
   });
 });
 
-// ✅ ฟังก์ชันอัปโหลดรูปทีละรูปเป็น base64
 async function uploadFilesToDrive(files) {
   const urls = [];
   for (const file of files.slice(0, 5)) {
@@ -31,9 +29,7 @@ async function uploadFilesToDrive(files) {
 
     const response = await fetch(WEBAPP_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
         bytes: base64,
         mimeType: file.type,
@@ -47,7 +43,6 @@ async function uploadFilesToDrive(files) {
   return urls;
 }
 
-// ✅ ฟังชันหลัก: ส่งข้อมูลเป็น JSON
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
@@ -59,14 +54,12 @@ form.addEventListener('submit', async e => {
       name: formData.get('name'),
       department: formData.get('department'),
       issue: formData.get('issue'),
-      images: fileUrls // array of Drive URLs
+      images: fileUrls
     };
 
     const response = await fetch(WEBAPP_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
 
