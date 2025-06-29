@@ -18,6 +18,7 @@ imageInput.addEventListener('change', () => {
   });
 });
 
+
 async function uploadFilesToDrive(files) {
   const urls = [];
   for (const file of files.slice(0, 5)) {
