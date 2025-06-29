@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>แจ้งซ่อมออนไลน์</title>
-  <style>
-    body { font-family: sans-serif; padding: 1em; max-width: 600px; margin: auto; }
-    label { display: block; margin-top: 1em; }
-    input, textarea, select { width: 100%; padding: 8px; }
-    #preview img { height: 100px; margin: 5px; }
-    button { margin-top: 1em; padding: 10px 20px; }
-  </style>
-</head>
-<body>
-  <h1>แจ้งซ่อมออนไลน์</h1>
-  <form id="repairForm">
-    <label>ชื่อผู้แจ้ง:
-      <input type="text" name="name" required />
-    </label>
-    <label>กลุ่มงาน:
-      <input type="text" name="department" required />
-    </label>
-    <label>ปัญหาเครื่อง:
-      <textarea name="issue" required></textarea>
-    </label>
-    <label>รูปภาพ (อัปโหลดได้สูงสุด 5 รูป):
-      <input type="file" name="images" id="imageInput" multiple accept="image/*" />
-    </label>
-    <div id="preview"></div>
-    <button type="submit">ส่งข้อมูล</button>
-  </form>
-  <script src="script.js"></script>
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>แจ้งซ่อมออนไลน์</title>
+    <style>
+      body { font-family: sans-serif; padding: 1em; max-width: 600px; margin: auto; }
+      label { display: block; margin-top: 1em; }
+      input, textarea { width: 100%; padding: 8px; }
+      #preview img { height: 100px; margin: 5px; }
+      button { margin-top: 1em; padding: 10px 20px; }
+    </style>
+  </head>
+  <body>
+    <h1>แจ้งซ่อมออนไลน์</h1>
+    <form id="repairForm">
+      <label>ชื่อผู้แจ้ง:
+        <input type="text" name="name" required />
+      </label>
+      <label>กลุ่มงาน:
+        <input type="text" name="department" required />
+      </label>
+      <label>ปัญหาเครื่อง:
+        <textarea name="issue" required></textarea>
+      </label>
+      <label>รูปภาพ (สูงสุด 5 รูป):
+        <input type="file" id="imageInput" multiple accept="image/*" />
+      </label>
+      <div id="preview"></div>
+      <button type="submit">ส่งข้อมูล</button>
+    </form>
