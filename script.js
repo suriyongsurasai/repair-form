@@ -1,4 +1,4 @@
-const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbx9BMPUwaJBNixu1tQQVGkkDbuhNPnVaCg0fOLGiFL2ht1plpk8TBL9e9eMy07tZg0XLQ/exec'; // เปลี่ยนเป็น Web App URL
+const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyl0lUnG_n0F0bkbcJS1J-MqWQ6dA99Z8VVoyXNATSWCG-T4hEBsgEEfuRKT3nxqkA1xQ/exec'; // เปลี่ยนเป็น Web App URL
 
 const form = document.getElementById('repairForm');
 const imageInput = document.getElementById('imageInput');
