@@ -30,3 +30,73 @@
       <div id="preview"></div>
       <button type="submit">ส่งข้อมูล</button>
     </form>
+<script>
+      const imageInput = document.getElementById('imageInput');
+      const preview = document.getElementById('preview');
+      const form = document.getElementById('repairForm');
+
+      imageInput.addEventListener('change', () => {
+        preview.innerHTML = '';
+        [...imageInput.files].slice(0, 5).forEach(file => {
+          const reader = new FileReader();
+          reader.onload = e => {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.height = '100px';
+            preview.appendChild(img);
+          };
+          reader.readAsDataURL(file);
+        });
+      });
+
+      async function uploadFiles(files) {
+        const urls = [];
+        for (const file of [...files].slice(0, 5)) {
+          const reader = new FileReader();
+          const base64 = await new Promise(r => {
+            reader.onload = () => r(reader.result.split(',')[1]);
+            reader.readAsDataURL(file);
+          });
+          const res = await fetch('', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+              bytes: base64,
+              mimeType: file.type,
+              filename: file.name
+            })
+          });
+          urls.push(await res.text());
+        }
+        return urls;
+      }
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        try {
+          const formData = new FormData(form);
+          const imageUrls = await uploadFiles(imageInput.files);
+
+          const payload = {
+            name: formData.get('name'),
+            department: formData.get('department'),
+            issue: formData.get('issue'),
+            images: imageUrls
+          };
+
+          const res = await fetch('', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          alert("✅ ส่งข้อมูลเรียบร้อย: " + await res.text());
+          form.reset();
+          preview.innerHTML = '';
+        } catch (err) {
+          alert("❌ เกิดข้อผิดพลาด: " + err.message);
+        }
+      });
+    </script>
+  </body>
+</html>
