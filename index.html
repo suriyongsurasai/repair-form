@@ -84,7 +84,7 @@
             images: imageUrls
           };
 
-          const res = await fetch('https://script.google.com/macros/s/AKfycbyl0lUnG_n0F0bkbcJS1J-MqWQ6dA99Z8VVoyXNATSWCG-T4hEBsgEEfuRKT3nxqkA1xQ/exec', {
+          const res = await fetch(WEBAPP_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
