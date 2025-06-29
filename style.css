@@ -1,0 +1,24 @@
+body {
+  font-family: sans-serif;
+  padding: 1em;
+}
+
+form {
+  max-width: 400px;
+  margin: auto;
+  background: #f4f4f4;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+input, textarea, button {
+  width: 100%;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+#preview img {
+  height: 100px;
+  margin: 5px;
+}

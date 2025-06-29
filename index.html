@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แจ้งซ่อมออนไลน์</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="repairForm">
+    <h2>ฟอร์มแจ้งซ่อม</h2>
+    <label>ชื่อผู้แจ้ง</label>
+    <input type="text" name="name" required>
+
+    <label>กลุ่มงาน</label>
+    <input type="text" name="department" required>
+
+    <label>ปัญหาเครื่อง</label>
+    <textarea name="issue" required></textarea>
+
+    <label>แนบรูป (สูงสุด 5 รูป)</label>
+    <input type="file" id="imageInput" name="images" multiple accept="image/*" />
+
+    <div id="preview"></div>
+
+    <button type="submit">ส่งข้อมูล</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
