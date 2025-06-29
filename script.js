@@ -1,4 +1,4 @@
-const WEBAPP_URL = '<<YOUR_WEBAPP_URL>>'; // เปลี่ยนเป็น URL ของ Google Apps Script Web App
+const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbx9BMPUwaJBNixu1tQQVGkkDbuhNPnVaCg0fOLGiFL2ht1plpk8TBL9e9eMy07tZg0XLQ/exec'; // เปลี่ยนเป็น URL ของ Google Apps Script Web App
 
 const form = document.getElementById('repairForm');
 const imageInput = document.getElementById('imageInput');
